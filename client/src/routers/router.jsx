@@ -51,6 +51,14 @@ const router = createBrowserRouter(
         element: <CategoryWise />,
       },
       {
+        path:"success",
+        element:<Success/>
+      },
+      {
+        path:"cancel",
+        element:<Cancel/>
+      },
+      {
         path: "/book/:id",
         element: (
           <PrivateRoute>
@@ -101,14 +109,7 @@ const router = createBrowserRouter(
     path: "logout",
     element: <Logout />,
   },
-  {
-    path:"success",
-    element:<Success/>
-  },
-  {
-    path:"cancel",
-    element:<Cancel/>
-  },
+  
 ]);
 
 export default router;
