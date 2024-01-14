@@ -78,7 +78,7 @@ const Login = () => {
                 </div>
 
                 {error ? (
-                  <p className="text-red-600">Email or Password is incorrect</p>
+                  <p className="text-red-600">{error.slice(10)}</p>
                 ) : (
                   ""
                 )}

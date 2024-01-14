@@ -15,7 +15,7 @@ const Cart = () => {
   
   const [userCart,setUserCart]=useState([]);
   const checkout=()=>{
-    fetch(`http://localhost:5000/create-checkout-session`,{
+    fetch(`${process.env.REACT_APP_SERVER}/create-checkout-session`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json",

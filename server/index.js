@@ -59,7 +59,7 @@ async function run() {
 
       const data = await bookCollections.findOne({ _id: new ObjectId(id) });
       // cartCollections.findOneAndReplace(query,)
-      if (cart.filter(e => e.Name === data.name).length > 0) {
+      if (cart.filter(e => e.bookTitle === data.bookTitle).length > 0) {
         /* vendors contains the element we're looking for */
         cart.map((item)=>{
           if(item.name==data.name){
@@ -72,7 +72,7 @@ async function run() {
         })
       }
       else{
-        const find=data;
+        var find=data;
         find.quantity=1;
         cart.push(find);
       }

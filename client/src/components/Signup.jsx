@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 const Signup = () => {
   const { createUser, loginwithGoogle } = useContext(AuthContext);
-  const [error, setError] = useState("error");
+  const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -18,7 +18,7 @@ const Signup = () => {
       .then((res) => res.json())
       .then((data) => console.log(data));
   };
-  const handleSignUp = (event) => {
+  const handleNormalSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -40,7 +40,7 @@ const Signup = () => {
         setError(errorMessage);
       });
   };
-  const handleRegister = () => {
+  const handleGoogleSignUp = () => {
     loginwithGoogle()
       .then((result) => {
         const user = result.user;
@@ -68,7 +68,7 @@ const Signup = () => {
             </div>
             <div className="divide-y divide-gray-200">
               <form
-                onSubmit={handleSignUp}
+                onSubmit={handleNormalSignUp}
                 className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7"
               >
                 <div className="relative">
@@ -89,6 +89,11 @@ const Signup = () => {
                     placeholder="Password"
                   />
                 </div>
+                {error ? (
+                  <p className="text-red-600">{error.slice(10)}</p>
+                ) : (
+                  ""
+                )}
                 <p>
                   If you have an account . Please{" "}
                   <Link to="/login" className="text-blue-600">
@@ -105,7 +110,7 @@ const Signup = () => {
             </div>
             <hr />
             <div className="flex w-full items-center flex-col mt-5 gap-3">
-              <button onClick={handleRegister} className="block">
+              <button onClick={handleGoogleSignUp} className="block">
                 {" "}
                 <img
                   className="w-12 h-12 inline-block"

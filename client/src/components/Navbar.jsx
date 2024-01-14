@@ -5,6 +5,7 @@ import { AuthContext } from "../context/AuthProvider";
 import { Dropdown } from "flowbite-react";
 import { IoCartOutline } from "react-icons/io5";
 import { IoBookOutline } from "react-icons/io5";
+import { FaUser } from "react-icons/fa";
 import logo from "../assets/modified.png"
 const Navbar = () => {
   const { user } = useContext(AuthContext);
@@ -71,7 +72,7 @@ const Navbar = () => {
           isSticky ? "sticky top-0 right-0 left-0 bg-blue-300" : ""
         }`}
       >
-        <div className="flex justify-between items-center text-base gap-2 ">
+        <div className="flex flex-row justify-between items-start text-base gap-2 ">
           <Link
             to="/"
             className="text-2xl font-bold cursor-pointer text-blue-700 flex items-center gap-2"
@@ -80,7 +81,7 @@ const Navbar = () => {
             {/* 
              */}
              <img width="30px" src={logo} alt=""/>
-            <span className="text-[11px] font-bold lg:text-xl">JS BOOKSTORE</span>
+            <span className="text-[8px] font-bold lg:text-xl">JS BOOKSTORE</span>
           </Link>
           <ul className="md:flex space-x-12 hidden ">
             {navItems.map(({ link, path }) => (
@@ -103,10 +104,10 @@ const Navbar = () => {
             
           </ul>
           
-          <div className="flex justify-center items-center gap-8 lg:gap-16">
-          {user?(<li className="flex items-center text-xs lg:text-[16px] ">{user.displayName}<img src={user.photoURL} alt=""  className="ml-[15px] w-[25px] h-[25px] lg:w-[40px] lg:h-[40px] rounded-full"/></li>):<Link to="/login">SIGN IN</Link>}
-            <Link to="/cart" className="text-2xl">
-              <div className="flex relative"><IoCartOutline /><span className=" ml-[2px] rounded-full px-1 text-sm font-semibold absolute top-[-10px] bg-orange-200 left-5">{getTotalItems()}</span></div>
+          <div className="flex justify-end  items-center gap-2 lg:gap-16">
+          {user?(<li className="flex items-center text-[10px] lg:text-[16px] ">{user.displayName ||  user.email+" 👤" } {user.photoURL?(<img src={user.photoURL} alt=""  className="ml-[15px] w-[25px] h-[25px] lg:w-[40px] lg:h-[40px] rounded-full"/>):""}</li>):<Link to="/login">SIGN IN</Link>}
+            <Link to="/cart" className="text-md mr-4 lg:text-2xl">
+              <div className="flex relative"><IoCartOutline /><span className=" lg:ml-[2px] rounded-full px-1 text-sm font-semibold absolute top-[-10px] bg-orange-200 left-4 lg:left-5">{getTotalItems()}</span></div>
             </Link>
             {user?(<Link className="text-black hidden lg:block text-xs lg:text-[16px] hover:text-blue-700 cursor-pointer" to="/logout">LOG OUT</Link>):""}
           
@@ -125,7 +126,7 @@ const Navbar = () => {
           </div>
         </div>
         <div
-          className={`space-y-4 px-4 mt-16 py-7 bg-blue-700 ${
+          className={`space-y-4 px-4 mt-24 py-7 bg-blue-700 ${
             isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
           }`}
         >
