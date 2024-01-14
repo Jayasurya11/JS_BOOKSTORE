@@ -102,11 +102,11 @@ const router = createBrowserRouter(
     element: <Logout />,
   },
   {
-    path:"/success",
+    path:"success",
     element:<Success/>
   },
   {
-    path:"/cancel",
+    path:"cancel",
     element:<Cancel/>
   },
 ]);

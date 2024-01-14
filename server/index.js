@@ -168,8 +168,8 @@ async function run() {
             quantity:item.quantity
           }
         }),
-        success_url:"http://localhost:5173/success",
-        cancel_url:"http://localhost:5173/cancel"
+        success_url:"https://jsbookstore.netlify.app/success",
+        cancel_url:"https://jsbookstore.netlify.app/cancel"
         });
         res.json({url:session.url})
       }catch(e){
