@@ -159,15 +159,24 @@ async function run() {
         line_items:req.body.map(item=>{
           return{
             price_data:{
-              currency:INR,
+              currency:"INR",
               product_data:{
                 name:item.bookTitle
               },
               unit_amount:item.price*100
             },
-            quantity:item.quantity
-          }
-        }),
+            quantity:item.quantity,
+            shipping: {
+              name: "Jayasurya",
+              address: {
+              line1: "1/111, Mettu street, Alampoondi",
+              postal_code: "604151",
+              city: "Villupuram",
+              state: "Tamil Nadu",
+              country: "India",
+            },
+          },
+        }}),
         success_url:"https://jsbookstore.netlify.app/success",
         cancel_url:"https://jsbookstore.netlify.app/cancel"
         });
