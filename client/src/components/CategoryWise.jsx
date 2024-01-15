@@ -1,20 +1,28 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { Card } from "flowbite-react";
+import Loader from "../loader/Loader";
 
 const CategoryWise = () => {
   const [books, setBooks] = useState([]);
-
+  const [isLoading,setIsLoading]=useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get("q");
 
   useEffect(() => {
+    setIsLoading(true);
+
     fetch(`${process.env.REACT_APP_SERVER}/all-books?q=${search}`)
       .then((res) => res.json())
-      .then((data) => setBooks(data));
+      .then((data) => {
+        setIsLoading(false);
+        setBooks(data);
+      }
+        );
   }, [searchParams]);
   return (
-    <div className="mt-28 px-4 lg:px-24">
+    <>
+    {isLoading?(<div className="mt-24 "><Loader/></div>):(<div className="mt-28 px-4 lg:px-24">
       <h2 className="text-xl lg:text-5xl font-bold text-center">
         {`${search.charAt(0).toUpperCase() + search.slice(1)} Category Books`}
       </h2>
@@ -41,7 +49,9 @@ const CategoryWise = () => {
           </Link>
         ))}
       </div>
-    </div>
+    </div>)}
+    
+    </>
   );
 };
 

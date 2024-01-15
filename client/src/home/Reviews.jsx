@@ -65,7 +65,7 @@ const Reviews = () => {
                   rounded
                   className="w-10 mb-4"
                 />
-                <h5 className="text-lg font-medium ">Margot Elise</h5>
+                <h5 className="text-lg font-medium ">Rachel Green</h5>
                 <p className="text-base">Team Lead, Microsoft</p>
               </div>
             </div>
@@ -117,7 +117,7 @@ const Reviews = () => {
                   rounded
                   className="w-10 mb-4"
                 />
-                <h5 className="text-lg font-medium ">Mark Ping</h5>
+                <h5 className="text-lg font-medium ">Chandler Bing</h5>
                 <p className="text-base">CEO, ABC Company</p>
               </div>
             </div>
@@ -143,7 +143,7 @@ const Reviews = () => {
                   rounded
                   className="w-10 mb-4"
                 />
-                <h5 className="text-lg font-medium ">Rachel Green</h5>
+                <h5 className="text-lg font-medium ">Phoebe Buffay</h5>
                 <p className="text-base">Software Engineer, Google</p>
               </div>
             </div>
@@ -169,7 +169,7 @@ const Reviews = () => {
                   rounded
                   className="w-10 mb-4"
                 />
-                <h5 className="text-lg font-medium ">Peter Wilon</h5>
+                <h5 className="text-lg font-medium ">Joey Tribbiani</h5>
                 <p className="text-base">Business Executive, Trading Company</p>
               </div>
             </div>

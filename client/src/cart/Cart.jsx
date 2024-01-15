@@ -80,7 +80,7 @@ const Cart = () => {
   return (
     
     <>
-    {isLoading?(<div className="mt-28 "><Loader/></div>):(<>
+    {isLoading?(<div className="mt-24 "><Loader/></div>):(<>
     {userCart.length>0?(<>
     <div className="mt-28 mx-4 lg:mx-12 pb-4 grid grid-cols-6 gap-2  lg:grid-cols-7 font-bold border-b-2 border-gray-200">
       <p className="text-center text-xs lg:text-lg">Book Title</p>
