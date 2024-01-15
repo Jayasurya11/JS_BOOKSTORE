@@ -176,7 +176,7 @@ async function run() {
         line_items:req.body.map(item=>{
           return{
             price_data:{
-              currency:"inr",
+              currency:"INR",
               product_data:{
                 name:item.bookTitle
               },
