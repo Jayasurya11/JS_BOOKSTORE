@@ -6,15 +6,20 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import empty_cart from "../assets/banner-books/cart1.png"
 import { toast } from "react-toastify";
 import Loader from "../loader/Loader";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
  
   const { user } = useContext(AuthContext);
+  const navigate=useNavigate();
   const email= user?.email;
   const [isLoading, setIsLoading] = useState(false);
   
   const [userCart,setUserCart]=useState([]);
+  const [checkoutCart,setCheckoutCart]=useState({})
+  
   const checkout=()=>{
+    
     fetch(`${process.env.REACT_APP_SERVER}/create-checkout-session`,{
       method:"POST",
       headers:{

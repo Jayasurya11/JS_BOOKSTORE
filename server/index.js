@@ -9,7 +9,8 @@ app.use(cors());
 app.use(express.json());
 
 const port = process.env.PORT || 5000;
-const stripe=require("stripe")(process.env.STRIPE_SECRET_KEY)
+const stripe=require("stripe")(process.env.STRIPE_SECRET_KEY);
+
 app.get("/", (req, res) => {
   res.send("Hello world");
 });
@@ -153,9 +154,24 @@ async function run() {
     })
     app.post("/create-checkout-session",async(req,res)=>{
       try{
+        // const customer = await stripe.customers.create({
+        //   name: "Jayasurya E",
+        //   id:"cus_PNTChvW1xdlyKO",
+        //   address:{
+        //     line1:"1/111, Mettu Street",
+        //     line2:"Alampoondi",
+        //     postal_code:"604151",
+        //     city:"Villupuram",
+        //     state:"Tamil Nadu",
+        //     country:"IN"
+        //   }
+        // });
         const session= await stripe.checkout.sessions.create({
+        
         payment_method_types:['card'],
+        
         mode:'payment',
+        
         line_items:req.body.map(item=>{
           return{
             price_data:{
@@ -163,22 +179,19 @@ async function run() {
               product_data:{
                 name:item.bookTitle
               },
-              unit_amount:item.price*100
+              unit_amount:item.price*100,
+              
             },
             quantity:item.quantity,
-            // shipping: {
-            //   name: "Jayasurya",
-            //   address: {
-            //   line1: "1/111, Mettu street, Alampoondi",
-            //   postal_code: "604151",
-            //   city: "Villupuram",
-            //   state: "Tamil Nadu",
-            //   country: "India",
-            // },
-          }
-        }),
+            
+          }}),
+          billing_address_collection: "required",
+          shipping_address_collection:{
+            allowed_countries:["IN"]
+          },
         success_url:"https://jsbookstore.netlify.app/success",
-        cancel_url:"https://jsbookstore.netlify.app/cancel"
+        cancel_url:"https://jsbookstore.netlify.app/cancel",
+
         });
         res.json({url:session.url})
       }catch(e){
