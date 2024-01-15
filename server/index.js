@@ -166,6 +166,7 @@ async function run() {
         //     country:"IN"
         //   }
         // });
+        
         const session= await stripe.checkout.sessions.create({
         
         payment_method_types:['card'],
@@ -190,7 +191,7 @@ async function run() {
             allowed_countries:["IN"]
           },
         success_url:"https://jsbookstore.netlify.app/success",
-        cancel_url:"https://jsbookstore.netlify.app/cancel",
+        return_url:"https://jsbookstore.netlify.app/cancel"
 
         });
         res.json({url:session.url})
