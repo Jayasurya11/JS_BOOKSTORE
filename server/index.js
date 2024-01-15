@@ -46,7 +46,13 @@ async function run() {
         email: emailId,
         cart: [],
       };
-      const result = await cartCollections.insertOne(data);
+      const existing=await cartCollections.findOne({email:emailId});
+      if(!existing){
+        var result = await cartCollections.insertOne(data);
+      }
+      else{
+        var result="already exist"
+      }
       res.send(result);
     });
     app.post("/add-to-cart/:id", async (req, res) => {

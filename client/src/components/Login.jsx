@@ -9,6 +9,13 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
+  const createCart = (email) => {
+    fetch(`${process.env.REACT_APP_SERVER}/create-user-cart?q=${email}`, {
+      method: "POST",
+    })
+      .then((res) => res.json())
+      .then((data) => console.log("cart created"));
+  };
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -32,7 +39,8 @@ const Login = () => {
   const handleRegister = () => {
     loginwithGoogle()
       .then((result) => {
-        const user = result.user;console.log(user);
+        const user = result.user;
+        createCart(user.email);
         toast.success("Logged In",{
           className:"toast-message"
         })
