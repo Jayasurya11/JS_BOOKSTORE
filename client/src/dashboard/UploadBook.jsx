@@ -115,7 +115,7 @@ const UploadBook = () => {
 
           <div className="lg:w-1/2">
             <div className="mb-2 block">
-              <Label htmlFor="inputState" value="Book category" />
+              <Label htmlFor="inputState" value="Category" />
             </div>
             <Select
               id="inputState"

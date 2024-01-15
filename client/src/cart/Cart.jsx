@@ -16,7 +16,7 @@ const Cart = () => {
   const [isLoading, setIsLoading] = useState(false);
   
   const [userCart,setUserCart]=useState([]);
-  const [checkoutCart,setCheckoutCart]=useState({})
+
   
   const checkout=()=>{
     
@@ -37,7 +37,7 @@ const Cart = () => {
       toast.error("Removed from Cart",{
         className:"toast-message" 
       }) 
-      console.log(data);
+      
       setUserCart(data.cart);
       
     })
@@ -67,7 +67,7 @@ const Cart = () => {
       await fetch(`${process.env.REACT_APP_SERVER}/usercart?q=${email}`)
       .then((res)=>res.json())
       .then((data)=>{
-        console.log(data.cart)
+        
         setUserCart(data.cart);
         setIsLoading(false);
       })

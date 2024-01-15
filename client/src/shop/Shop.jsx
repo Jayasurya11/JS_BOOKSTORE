@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
 import { Card } from "flowbite-react";
 import { Link } from "react-router-dom";
+import Loader from "../loader/Loader";
 
 
 const Shop = () => {
   const [books, setBooks] = useState([]);
+  const [isLoading,setIsLoading]=useState(false);
   useEffect(() => {
+    setIsLoading(true);
     fetch(`${process.env.REACT_APP_SERVER}/all-books`)
       .then((res) => res.json())
-      .then((data) => setBooks(data));
+      .then((data) => {
+        setIsLoading(false);
+        setBooks(data);
+      });
   }, []);
-  return (
+  return (<>
+    {isLoading?(<div className="mt-24 "><Loader/></div>):(
     <div className="mt-28 px-4 lg:px-24">
       <h2 className="text-xl lg:text-5xl font-bold text-center">All Books are here</h2>
       <div className="grid gap-12 my-12 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 grid-cols-1">
@@ -39,7 +46,7 @@ const Shop = () => {
         ))}
       </div>
     </div>
-  );
-};
-
+  )}</>
+  )
+}
 export default Shop;
