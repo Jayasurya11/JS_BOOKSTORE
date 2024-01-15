@@ -191,7 +191,7 @@ async function run() {
             allowed_countries:["IN"]
           },
         success_url:"https://jsbookstore.netlify.app/success",
-        return_url:"https://jsbookstore.netlify.app/cancel"
+        cancel_url:"https://jsbookstore.netlify.app/cancel"
 
         });
         res.json({url:session.url})
