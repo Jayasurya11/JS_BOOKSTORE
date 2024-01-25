@@ -194,7 +194,7 @@ async function run() {
           }}),
           billing_address_collection: "required",
           shipping_address_collection:{
-            allowed_countries:["IN"]
+            allowed_countries:["IN","US"]
           },
         success_url:"https://jsbookstore.netlify.app/success",
         cancel_url:"https://jsbookstore.netlify.app/cancel"
