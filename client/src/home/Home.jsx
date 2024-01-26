@@ -10,6 +10,7 @@ const Home = () => {
     <div className="overflow-x-hidden">
       <Banner />
       <BestSellerBooks />
+
       <FavBook />
       <PromoBanner />
       <OtherBooks />

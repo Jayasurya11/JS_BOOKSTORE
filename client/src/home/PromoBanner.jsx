@@ -9,12 +9,9 @@ const PromoBanner = () => {
           <h2 className="text-2xl lg:text-5xl font-bold mb-6 leading-snug ">
             2023 National Book Awards for Self-Help Shortlist
           </h2>
-
-          
-          
         </div>
         <div>
-          <img src={bookPic} alt="" className="w-96 h-60" />
+          <img src={bookPic} alt="" className="w-96 h-48 lg:h-60" />
         </div>
       </div>
     </div>

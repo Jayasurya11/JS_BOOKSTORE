@@ -39,7 +39,6 @@ const router = createBrowserRouter(
         path: "/cart",
         element: (
           <PrivateRoute>
-         
             <Cart/>
           </PrivateRoute>
         ),
@@ -62,7 +61,6 @@ const router = createBrowserRouter(
         path: "/book/:id",
         element: (
           <PrivateRoute>
-           
             <SingleBook />
           </PrivateRoute>
         ),

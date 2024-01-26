@@ -1,14 +1,15 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData,useParams } from "react-router-dom";
 
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import { toast } from "react-toastify";
+import Loader from "../loader/Loader";
 
 
 const SingleBook = () => {
 
   const { user } = useContext(AuthContext);
-
+  
   const {
     _id,
     bookTitle,
@@ -18,6 +19,11 @@ const SingleBook = () => {
     authorName,
     category,
   } = useLoaderData();
+  useEffect(()=>{
+
+    
+    window.scrollTo(0,0);
+  },[])
   const handleCart = (id, email) => {
     fetch(`${process.env.REACT_APP_SERVER}/add-to-cart/${id}?email=${email}`, {
       method: "POST",
@@ -32,7 +38,7 @@ const SingleBook = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="my-16 border-t-2 lg:border-t-0 border-gary-300 lg:my-28 px-4 flex sm: flex-col lg:flex-row justify-between lg:px-24">
+    <div className="my-16 border-t-2 lg:border-t-0 border-gray-300 lg:my-28 px-4 flex sm: flex-col lg:flex-row justify-between lg:px-24">
       <h2 className="text-center font-bold mb-4 text-3xl block lg:hidden ">{bookTitle}</h2>
       <img src={imageURL} alt="" className="h-96" />
       <div className="pl-5 flex flex-col justify-between">

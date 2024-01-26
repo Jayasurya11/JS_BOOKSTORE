@@ -14,17 +14,17 @@ const FavBook = () => {
         <p className="mb-10 text-lg md:w-5/6">
           JS Bookstore is a online bookstore in India that offers a wide range of books at affordable price where you can buy books and even sell online. 
         </p>
-        <div className="flex flex-col sm:flex-row justify-between gap-6 md:w-3/4 my-14">
+        <div className="flex flex-row justify-between gap-6 md:w-3/4 my-14">
           <div>
-            <h3 className="text-3xl font-bold">800+</h3>
+            <h3 className="text-2xl lg:text-3xl font-bold">800+</h3>
             <p className="text-base">Book Listing</p>
           </div>
           <div>
-            <h3 className="text-3xl font-bold">550+</h3>
+            <h3 className="text-2xl lg:text-3xl font-bold">550+</h3>
             <p className="text-base">Registered Users</p>
           </div>
           <div>
-            <h3 className="text-3xl font-bold">1200+</h3>
+            <h3 className="text-2xl lg:text-3xl font-bold">1200+</h3>
             <p className="text-base">Books Purchased</p>
           </div>
         </div>
