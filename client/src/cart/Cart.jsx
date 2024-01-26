@@ -108,13 +108,13 @@ const Cart = () => {
       <div className="flex justify-end">
       <div className="px-8 lg:px-24">
         
-        <div className="flex justify-between w-full"><p>TOTAL</p><pre>{`:₹${getTotal()}`.padEnd(8)}</pre></div>
-        <div className="flex justify-between w-full"><p>TAX</p><pre >{`:₹0`.padEnd(8)}</pre></div>
-        <div className="flex justify-between w-full"><p>DELIVERY CHARGE</p><pre>{`:₹0`.padEnd(7)} </pre></div>
-        <div className="flex justify-between w-full border-y border-gray-400"><p>NET TOTAL</p><pre>{`:₹${getTotal()}`.padEnd(8)}</pre></div>
+        <div className="flex justify-between w-full sm:text-sm text-lg"><p>TOTAL</p><pre>{`:₹${getTotal()}`.padEnd(8)}</pre></div>
+        <div className="flex justify-between w-full sm:text-sm text-lg"><p>TAX</p><pre >{`:₹0`.padEnd(8)}</pre></div>
+        <div className="flex justify-between w-full sm:text-sm text-lg"><p>DELIVERY CHARGE</p><pre>{`:₹0`.padEnd(7)} </pre></div>
+        <div className="flex justify-between w-full sm:text-sm text-lg border-y border-gray-400"><p>NET TOTAL</p><pre>{`:₹${getTotal()}`.padEnd(8)}</pre></div>
         
         
-        <button  className="block px-3 py-2  w-full my-5 bg-blue-600 rounded-md" onClick={checkout}>Checkout</button>
+        <button  className="block px-3 py-2  sm:text-sm text-lg w-full my-5 bg-blue-600 rounded-md" onClick={checkout}>Checkout</button>
       </div>
       </div>
       </>
