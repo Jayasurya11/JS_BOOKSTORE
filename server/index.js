@@ -69,7 +69,7 @@ async function run() {
       if (cart.filter(e => e.bookTitle === data.bookTitle).length > 0) {
         /* vendors contains the element we're looking for */
         cart.map((item)=>{
-          if(item.name==data.name){
+          if(item.bookTitle==data.bookTitle){
             item.quantity+=1;
             return item;
           }
