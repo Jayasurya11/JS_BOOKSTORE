@@ -1,13 +1,13 @@
-import { useLoaderData,useParams } from "react-router-dom";
+import { useLoaderData,useNavigate} from "react-router-dom";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect} from "react";
 import { AuthContext } from "../context/AuthProvider";
 import { toast } from "react-toastify";
-import Loader from "../loader/Loader";
+
 
 
 const SingleBook = () => {
-
+  const navigate=useNavigate();
   const { user } = useContext(AuthContext);
   
   const {
@@ -25,17 +25,23 @@ const SingleBook = () => {
     window.scrollTo(0,0);
   },[])
   const handleCart = (id, email) => {
-    fetch(`${process.env.REACT_APP_SERVER}/add-to-cart/${id}?email=${email}`, {
-      method: "POST",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        toast.success("Added to Cart",{
-          className:"toast-message"
-        });
-        
+    if(user){
+      fetch(`${process.env.REACT_APP_SERVER}/add-to-cart/${id}?email=${email}`, {
+        method: "POST",
       })
-      .catch((err) => console.log(err));
+        .then((res) => res.json())
+        .then((data) => {
+          toast.success("Added to Cart",{
+            className:"toast-message"
+          });
+          
+        })
+        .catch((err) => console.log(err));
+    }
+    else{
+      navigate("/login");
+    }
+    
   };
   return (
     <div className="my-16 border-t-2 lg:border-t-0 border-gray-300 lg:my-28 px-4 flex sm: flex-col lg:flex-row justify-between lg:px-24">
@@ -55,7 +61,7 @@ const SingleBook = () => {
         <div className="flex flex-col justify-center items-center">
           <button
             onClick={() => {
-              handleCart(_id, user.email);
+              handleCart(_id, user?.email);
             }}
             className="block px-3 py-2 w-4/5 my-5 bg-blue-600 rounded-md"
           >

@@ -8,7 +8,7 @@ import { IoIosLogOut } from "react-icons/io";
 
 import { IoHome } from "react-icons/io5";
 import { FiEdit } from "react-icons/fi";
-import userImg from "../assets/profile.jpg";
+
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import { FaUser } from "react-icons/fa6";

@@ -24,7 +24,7 @@ const MyFooter = () => {
         <div className="grid w-full grid-cols-3 text-sm lg:text-lg gap-[2px] lg:gap-4  py-4 lg:py-8 md:grid-cols-4">
           
           {
-            bookCategories.map(item=>(<button
+            bookCategories.map((item,i)=>(<button key={i}
               onClick={() => {
                 window.scrollTo(0, 0);
               }}

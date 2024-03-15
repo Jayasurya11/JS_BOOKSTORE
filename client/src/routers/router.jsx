@@ -59,11 +59,7 @@ const router = createBrowserRouter(
       },
       {
         path: "/book/:id",
-        element: (
-          <PrivateRoute>
-            <SingleBook />
-          </PrivateRoute>
-        ),
+        element: <SingleBook />,
         loader: ({ params }) =>
           fetch(`${process.env.REACT_APP_SERVER}/book/${params.id}`),
       },

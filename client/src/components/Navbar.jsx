@@ -4,8 +4,7 @@ import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
 import { AuthContext } from "../context/AuthProvider";
 import { Dropdown } from "flowbite-react";
 import { IoCartOutline } from "react-icons/io5";
-import { IoBookOutline } from "react-icons/io5";
-import { FaUser } from "react-icons/fa";
+
 import logo from "../assets/modified.png"
 const Navbar = () => {
   const { user } = useContext(AuthContext);
@@ -84,9 +83,9 @@ const Navbar = () => {
             <span className="text-[8px] font-bold lg:text-xl">JS BOOKSTORE</span>
           </Link>
           <ul className="md:flex space-x-12 hidden ">
-            {navItems.map(({ link, path }) => (
+            {navItems.map(({ link, path },index) => (
               <Link
-                key={path}
+                key={index}
                 to={path}
                 className="block text-base text-black uppercase cursor-pointer hover:text-blue-700"
               >
@@ -145,9 +144,9 @@ const Navbar = () => {
           <div className="text-base text-white hover:text-red-400 cursor-pointer">
             <Dropdown label="SELECT BY CATEGORY" inline>
               <ul className="columns-2">
-              {bookCategories.map((category) => (
+              {bookCategories.map((category,i) => (
                 
-                <Dropdown.Item>
+                <Dropdown.Item key={i}>
                   
                   <Link  onClick={toggleMenu} className="cursor-pointer" to={`/category?q=${category.toLowerCase()}`}>{category}</Link>
                 </Dropdown.Item>
