@@ -34,7 +34,7 @@ const MyFooter = () => {
           }
         </div>
         <div className="w-full bg-gray-700 px-4 py-6 flex sm:flex-col sm:items-center sm:justify-center md:flex-row md:justify-between ">
-          <p className="text-white w-full">Copyright @ Jayasurya</p>
+          <p className="text-gray-400 w-full">@JS Bookstore 2023 - Jayasurya E</p>
           <div className="mt-4 w-full flex space-x-6 sm:mt-0 sm:justify-center md:justify-end">
             <Footer.Icon
               href="https://www.linkedin.com/in/jayasurya-e-bbbbb9207/"
